@@ -1,0 +1,25 @@
+.modalBody{
+  width: 720px;
+  height: 340px;
+  background-color:#e74c3c;
+  color: #ffffff;
+  border-radius: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  left: 30%;
+  font-size: 19px;
+}
+.modalHeading{
+  background-color:#b3382c;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 25px;
+}
+.modalBody{
+  display: flex;
+  flex-direction: column;
+}
