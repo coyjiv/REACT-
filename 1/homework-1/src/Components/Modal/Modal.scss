@@ -6,20 +6,27 @@
   border-radius: 4px;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   position: fixed;
-  left: 30%;
+  z-index: 2;
+  left: calc(50% - 360px);
   font-size: 19px;
+  margin-top: 50px;
+  text-align: center;
+  box-shadow: 10px 20px 60px darkgrey;
+  & p:nth-child(2){
+    font-size: 20px;
+    padding: 0px 70px;
+  }
 }
 .modalHeading{
   background-color:#b3382c;
-  width: 100%;
   padding-top: 20px;
+  border-radius: 4px;
+  margin-top: 0;
+  width: 100%;
   padding-bottom: 20px;
   font-size: 25px;
-}
-.modalBody{
-  display: flex;
-  flex-direction: column;
 }

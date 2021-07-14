@@ -1,0 +1,28 @@
+.btn-open-modal{
+  margin: 30px;
+  padding: 25px;
+  font-size: 19px;
+  border-radius: 4px;
+  border: 0px;
+  box-shadow: 3px 5px 6px darkgrey;
+}
+.btn-ok{
+  position: absolute;
+  top: 400px;
+  left: calc(50% - 120px);
+  font-size: 19px;
+  border: 0px;
+  box-shadow: 1px 5px 6px darkgrey;
+  z-index: 2;
+  border-radius: 3px;
+}
+.btn-cancel{
+  font-size: 19px;
+  position: absolute;
+  top: 400px;
+  left: calc(50% + 120px);
+  border: 0px;
+  border-radius: 3px;
+  box-shadow: 1px 5px 6px darkgrey;
+  z-index: 2;
+}
