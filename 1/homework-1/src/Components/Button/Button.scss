@@ -2,27 +2,23 @@
   margin: 30px;
   padding: 25px;
   font-size: 19px;
-  border-radius: 4px;
+  border-radius: 12px;
   border: 0px;
   box-shadow: 3px 5px 6px darkgrey;
 }
-.btn-ok{
-  position: absolute;
-  top: 400px;
-  left: calc(50% - 120px);
-  font-size: 19px;
-  border: 0px;
-  box-shadow: 1px 5px 6px darkgrey;
-  z-index: 2;
-  border-radius: 3px;
-}
+.btn-ok {
+  left: calc(50% - 150px);
+ }
 .btn-cancel{
-  font-size: 19px;
-  position: absolute;
-  top: 400px;
   left: calc(50% + 120px);
+}
+.btn-cancel, .btn-ok{
+  position: fixed;
+  top: 574px;
+  font-size: 19px;
   border: 0px;
-  border-radius: 3px;
-  box-shadow: 1px 5px 6px darkgrey;
-  z-index: 2;
+  border-radius: 5px;
+  background-color: #b3382c;
+  color: #ffffff;
+  font-family: Arial;
 }
