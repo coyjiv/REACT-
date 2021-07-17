@@ -2,6 +2,8 @@ import React from "react";
 import './App.css';
 import Button from "./Components/Button/Button";
 import Modal from "./Components/Modal/Modal";
+import PropTypes from 'prop-types';
+import CardWrapper from "./Components/CardWrapper/CardWrapper";
 class App extends React.Component{
     constructor(props){
         super(props);
@@ -25,6 +27,7 @@ class App extends React.Component{
   render(){
       return (
           <div className="App">
+              <CardWrapper />
               <div className="btn-wrapper">
                   <Button text="Open first modal" onClick={this.handleFirstModalOpen} backgroundColor="#B7F564" className="btn-open-modal"/>
                   <Button text="Open second modal" onClick={this.handleSecondModalOpen} backgroundColor="#F52F15" className="btn-open-modal"/>

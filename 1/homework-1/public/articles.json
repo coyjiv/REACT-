@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Oh my Dear",
+    "price": 1222,
+    "path": "cards/1.png",
+    "article": 11111,
+    "color": "grey"
+  },
+  {
+    "name": "Awaken the Hero",
+    "price": 1222,
+    "path": "cards/2.png",
+    "article": 11112,
+    "color": "grey"
+  },
+  {
+    "name": "Oh my Dear",
+    "price": 1222,
+    "path": "cards/3.png",
+    "article": 11113,
+    "color": "grey"
+  },
+  {
+    "name": "Ravenna",
+    "price": 1222,
+    "path": "cards/4.png",
+    "article": 11114,
+    "color": "grey"
+  },
+  {
+    "name": "Caribou",
+    "price": 1222,
+    "path": "cards/5.png",
+    "article": 11115,
+    "color": "grey"
+  },
+  {
+    "name": "Aqualung",
+    "price": 1222,
+    "path": "cards/6.png",
+    "article": 11116,
+    "color": "grey"
+  },
+  {
+    "name": "Strange to ears",
+    "price": 1222,
+    "path": "cards/7.png",
+    "article": 11117,
+    "color": "grey"
+  },
+  {
+    "name": "Ravenna",
+    "price": 1222,
+    "path": "cards/8.png",
+    "article": 11118,
+    "color": "grey"
+  },
+  {
+    "name": "Oh my Dear",
+    "price": 1222,
+    "path": "cards/9.png",
+    "article": 11119,
+    "color": "grey"
+  },
+  {
+    "name": "Oh my Dear",
+    "price": 1222,
+    "path": "cards/10.png",
+    "article": 11120,
+    "color": "grey"
+  }
+]
