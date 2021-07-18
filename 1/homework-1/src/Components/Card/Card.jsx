@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import "./Card.scss"
 import Button from "../Button/Button";
+import PropTypes from 'prop-types';
 class Card extends Component {
     state={
         favourite:false,
@@ -42,5 +43,10 @@ class Card extends Component {
             </>
         );
     }
-}
+//     Card.propTypes = {
+//     id: PropTypes.number,
+//     name:PropTypes.string,
+//     price:PropTypes.number,
+//   };
+  
 export default Card;
