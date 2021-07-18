@@ -1,37 +1,25 @@
 import React, {Component} from 'react';
 import "./CardWrapper.scss"
 import Card from "../Card/Card";
+import Loading from "../Loading/Loading";
 import axios from "axios";
 class CardWrapper extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            cards:[]
-        }
-    }
-    renderCards = async() => {
-            const res = await axios("/articles.json");
-            const cardss = res.data;
-        console.log(cardss);
-        this.setState({cards: cardss})
-
-        for (let index = 0; index < cardss.length; index++) {
-            const element = res.data[index];
-            // console.log(this.createCard(element.path, element.name, element.price));
-            this.createCard(element.path, element.name, element.price)
-        }
-        }
-    createCard(path, name, price){
-        return <Card
-                     path={path}
-                     name={name}
-                     price={price}
-        />
-    }
+    state = {
+    cards: [],
+    isLoading: true
+  }
+  async componentDidMount() {
+    const cards = await axios("/articles.json");
+    this.setState({cards: cards.data, isLoading: false});
+  }
     render() {
-        console.log(this.state)
+        const {isLoading, cards} = this.state;
+    if (isLoading) return <Loading />;
+    const cardsItems = cards
+      .map(card => <Card key={card.article} path={card.path} price={card.price} name={card.name}/>)
         return (
-            <div>
+            <div className="CardWrapper">
+                {cardsItems}
             </div>
         );
     }
