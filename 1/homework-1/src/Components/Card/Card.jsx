@@ -23,7 +23,7 @@ class Card extends Component {
                 <h4 className="cardDescription">descr</h4>
                 <div className="priceWrapper">
                     <h2 className="cardPrice">{this.props.price}</h2>
-                    <Button text="add to cart" className="btn-cart-add" onClick={this.props.addToCart}/>
+                    <Button text="add to cart" className="btn-cart-add" onClick={this.props.openCart}/>
                 </div>
             </div>
             </>

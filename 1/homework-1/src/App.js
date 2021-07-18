@@ -10,6 +10,7 @@ class App extends React.Component{
         this.state = {
             isFirstModalOpen:false,
             isSecondModalOpen:false,
+            isAdToCartOpen:false,
         }
     }
     handleFirstModalOpen=()=>{
@@ -24,10 +25,17 @@ class App extends React.Component{
             isSecondModalOpen: !state.isSecondModalOpen
         }))
     }
+    addToCart=()=>{
+        this.setState((state)=>({
+            ...state,
+            isAdToCartOpen:!state.isAdToCartOpen
+        }))
+        localStorage.setItem('myCat', 'Tom');
+    }
   render(){
       return (
           <div className="App">
-              <CardWrapper openCart={this.props.addToCart}/>
+              <CardWrapper openCart={this.addToCart}/>
               <div className="btn-wrapper">
                   <Button text="Open first modal" onClick={this.handleFirstModalOpen} backgroundColor="#B7F564" className="btn-open-modal"/>
                   <Button text="Open second modal" onClick={this.handleSecondModalOpen} backgroundColor="#F52F15" className="btn-open-modal"/>
@@ -43,6 +51,12 @@ class App extends React.Component{
                       <h2>Ogo</h2>
                       <Button text="Ok" className="btn-ok" onClick={this.handleSecondModalOpen}/>
                       <Button text="Cancel" className="btn-cancel" onClick={this.handleSecondModalOpen}/>
+                      </>
+                  }/>
+                  <Modal isOpen={this.state.isAdToCartOpen} onCancel={()=>this.addToCart} header="Do you want to add this to your cart?" closeButton={true} text="reaLLY" actions={
+                      <>
+                      <Button text="Ok" className="btn-ok" onClick={this.addToCart}/>
+                      <Button text="Cancel" className="btn-cancel" onClick={this.addToCart}/>
                       </>
                   }/>
               </div>
