@@ -15,8 +15,9 @@ class CardWrapper extends Component {
     render() {
         const {isLoading, cards} = this.state;
     if (isLoading) return <Loading />;
+    let id = 0;
     const cardsItems = cards
-      .map(card => <Card key={card.article} path={card.path} price={card.price} name={card.name} openCart={this.props.openCart}/>)
+      .map(card => <Card key={card.article} id={id+=1} path={card.path} price={card.price} name={card.name} openCart={this.props.openCart}/>)
         return (
             <div className="CardWrapper">
                 {cardsItems}

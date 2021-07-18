@@ -30,7 +30,6 @@ class App extends React.Component{
             ...state,
             isAdToCartOpen:!state.isAdToCartOpen
         }))
-        localStorage.setItem('myCat', 'Tom');
     }
   render(){
       return (
@@ -46,14 +45,14 @@ class App extends React.Component{
                       <Button text="Cancel" className="btn-cancel" onClick={this.handleFirstModalOpen}/>
                       </>
                   }/>
-                  <Modal isOpen={this.state.isSecondModalOpen} onCancel={()=>this.handleSecondModalOpen} header="Do you want to upload this file?" closeButton={true} text="something else" actions={
+                  <Modal isOpen={this.state.isSecondModalOpen} onCancel={this.handleSecondModalOpen} header="Do you want to upload this file?" closeButton={true} text="something else" actions={
                       <>
                       <h2>Ogo</h2>
                       <Button text="Ok" className="btn-ok" onClick={this.handleSecondModalOpen}/>
                       <Button text="Cancel" className="btn-cancel" onClick={this.handleSecondModalOpen}/>
                       </>
                   }/>
-                  <Modal isOpen={this.state.isAdToCartOpen} onCancel={()=>this.addToCart} header="Do you want to add this to your cart?" closeButton={true} text="reaLLY" actions={
+                  <Modal isOpen={this.state.isAdToCartOpen} onCancel={this.addToCart} header="Do you want to add this to your cart?" closeButton={true} text="reaLLY" actions={
                       <>
                       <Button text="Ok" className="btn-ok" onClick={this.addToCart}/>
                       <Button text="Cancel" className="btn-cancel" onClick={this.addToCart}/>
