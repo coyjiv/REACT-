@@ -27,7 +27,7 @@ class App extends React.Component{
   render(){
       return (
           <div className="App">
-              <CardWrapper />
+              <CardWrapper openCart={this.props.addToCart}/>
               <div className="btn-wrapper">
                   <Button text="Open first modal" onClick={this.handleFirstModalOpen} backgroundColor="#B7F564" className="btn-open-modal"/>
                   <Button text="Open second modal" onClick={this.handleSecondModalOpen} backgroundColor="#F52F15" className="btn-open-modal"/>

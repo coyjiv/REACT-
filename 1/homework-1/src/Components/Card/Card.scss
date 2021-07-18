@@ -1,0 +1,22 @@
+.cardContainer{
+    position: relative;
+    background-color: rgb(182, 182, 182);
+    border-radius: 12px;
+    margin: 10px 0px 0px 10px;
+}
+.star-btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.cardImage{
+    border-radius: 12px;
+}
+.priceWrapper{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.cardPrice::before{
+    content: "$";
+}
