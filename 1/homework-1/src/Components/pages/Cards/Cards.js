@@ -10,7 +10,7 @@ const Cards = () => {
     const [isAdToCartOpen, toggleCart] = useState(false);
     const [id, setId] = useState(0);
     const addToCart = (e) => {
-        localStorage.setItem(id, "cart");
+        localStorage.setItem("cart", localStorage.getItem("cart")+id);
         toggleCart(!isAdToCartOpen);
     }
     return(
