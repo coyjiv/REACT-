@@ -20,34 +20,6 @@ const Cards = () => {
             console.log((e.target.className).split("btn-cart-add")[1])
             setId((e.target.className).split("btn-cart-add")[1])
         }} />
-        <Button
-    text="Open first modal"
-    onClick={() => handleFirstModalOpen(!isFirstModalOpen)}
-    backgroundColor="#B7F564"
-    className="btn-open-modal"
-        />
-        <Modal
-    isOpen={isFirstModalOpen}
-    onCancel={() => handleFirstModalOpen(!isFirstModalOpen)}
-    header="Do you want to delete this file?"
-    closeButton={true}
-    text="Once you delete this file, it won’t be possible to undo this action. Are you sure you want to delete it?"
-    actions={
-    <>
-        <h2>!!!!!!</h2>
-        <Button
-            text="Ok"
-            className="btn-ok"
-            onClick={() => handleFirstModalOpen(!isFirstModalOpen)}
-        />
-        <Button
-            text="Cancel"
-            className="btn-cancel"
-            onClick={() => handleFirstModalOpen(!isFirstModalOpen)}
-        />
-    </>
-}
-    />
     <Modal
         isOpen={isSecondModalOpen}
         onCancel={() => handleSecondModalOpen(!isSecondModalOpen)}

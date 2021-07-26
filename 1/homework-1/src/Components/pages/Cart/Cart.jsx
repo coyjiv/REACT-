@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from "axios";
 import Card from "../../Card/Card";
-
+import "./Cart.scss"
 const Cart = (props) => {
     // const [prod, setProd] = useState([]);
     const allProducts = localStorage.getItem("products")
@@ -26,7 +26,7 @@ const Cart = (props) => {
 
     console.log(resultJson[cartProducts[index]])
     return (
-        <div>
+        <div className="Cart">
             cartITEMS:
 
             {cardCol}
