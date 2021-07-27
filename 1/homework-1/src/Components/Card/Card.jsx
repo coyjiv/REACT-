@@ -7,10 +7,21 @@ export default function Card(props) {
     const star = () => {
         if (localStorage.getItem(props.id) === "favourite") {
             localStorage.removeItem(props.id);
+            const stringFav = localStorage.getItem("favorite");
+            const indexChange = stringFav.indexOf(props.id);
+            const arrFav = stringFav.split("");
+            console.log(arrFav,indexChange)
+            arrFav.splice(indexChange,1);
+            console.log(arrFav)
+            localStorage.setItem("favorite", arrFav)
+            /*const test = stringFav.replace(stringFav,props.id)*/
+            /*localStorage.setItem("favorite", test)*/
+            /*console.log(test)*/
             handleFavourite(!favourite);
         } else {
                 handleFavourite(!favourite);
                 localStorage.setItem(props.id, "favourite")
+            localStorage.setItem("favorite", localStorage.getItem("favorite")+props.id)
             }
         }
     return (

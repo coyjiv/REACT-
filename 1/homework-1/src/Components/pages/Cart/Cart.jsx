@@ -9,6 +9,7 @@ const Cart = () => {
     let cardCol = [];
     for(let i in json_data)
         resultJson.push(json_data [i]);
+    if(cartProducts){
     for (let index=4;index < cartProducts.length; index++) {
         const element = cartProducts[index]-1;
         cardCol.push(<Card
@@ -16,13 +17,18 @@ const Cart = () => {
             path={resultJson[element].path}
             price={resultJson[element].price}
             name={resultJson[element].name}/>)
-    }
+    }}
+    else{
+        return(<div className="Cart">
+            <h2>No items!</h2>
+        </div> )
 
+    }
     return (
         <div className="Cart">
             cartITEMS:
 
-            {cardCol}
+            {cardCol?cardCol:null}
 
         </div>
     );
