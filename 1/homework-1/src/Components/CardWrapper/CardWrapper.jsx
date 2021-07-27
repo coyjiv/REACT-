@@ -13,7 +13,6 @@ export default function CardWrapper(props) {
     const cardss = await axios("/articles.json");
     setCards(cardss.data);
     toggleLoading(false);
-      console.log(JSON.parse(localStorage.getItem("products")))
     if (localStorage.getItem("products")===null) localStorage["products"] = JSON.stringify(cardss.data);
 }
 fetchData();

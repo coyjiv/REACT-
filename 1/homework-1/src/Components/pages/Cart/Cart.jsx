@@ -28,7 +28,7 @@ const Cart = () => {
         <div className="Cart">
             cartITEMS:
 
-            {cardCol?cardCol:null}
+            {cardCol}
 
         </div>
     );

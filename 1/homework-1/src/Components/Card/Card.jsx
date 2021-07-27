@@ -7,13 +7,13 @@ export default function Card(props) {
     const star = () => {
         if (localStorage.getItem(props.id) === "favourite") {
             localStorage.removeItem(props.id);
-            const stringFav = localStorage.getItem("favorite");
+            const stringFav = localStorage.getItem("favourite");
             const indexChange = stringFav.indexOf(props.id);
             const arrFav = stringFav.split("");
             console.log(arrFav,indexChange)
             arrFav.splice(indexChange,1);
             console.log(arrFav)
-            localStorage.setItem("favorite", arrFav)
+            localStorage.setItem("favourite", arrFav)
             /*const test = stringFav.replace(stringFav,props.id)*/
             /*localStorage.setItem("favorite", test)*/
             /*console.log(test)*/
@@ -21,7 +21,7 @@ export default function Card(props) {
         } else {
                 handleFavourite(!favourite);
                 localStorage.setItem(props.id, "favourite")
-            localStorage.setItem("favorite", localStorage.getItem("favorite")+props.id)
+            localStorage.setItem("favourite", localStorage.getItem("favourite")+props.id)
             }
         }
     return (
