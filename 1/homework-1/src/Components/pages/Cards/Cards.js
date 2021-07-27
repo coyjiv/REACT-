@@ -5,7 +5,6 @@ import Modal from "../../Modal/Modal";
 
 
 const Cards = () => {
-    const [isFirstModalOpen, handleFirstModalOpen] = useState(false);
     const [isSecondModalOpen, handleSecondModalOpen] = useState(false);
     const [isAdToCartOpen, toggleCart] = useState(false);
     const [id, setId] = useState(0);
