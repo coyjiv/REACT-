@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import "./Card.scss"
 import Button from "../Button/Button";
 import PropTypes from 'prop-types';
-export default function Card(props) {
-    const [favourite, handleFavourite] = useState(false);
+import {connect} from "react-redux";
+
+function Card(props) {
+    // console.log(props)
+    const {isFavourite,isInCart} = props.card;
+    const {dispatch} =props;
     const star = () => {
         if (localStorage.getItem(props.id) === "favourite") {
-            localStorage.removeItem(props.id);
             const stringFav = localStorage.getItem("favourite");
-            const indexChange = stringFav.indexOf(props.id);
-            const arrFav = stringFav.split("");
-            console.log(arrFav,indexChange)
+            const arrFav = stringFav.split(",");
+            const indexChange = arrFav.indexOf(props.id.toString());
+            console.log(arrFav, indexChange)
             arrFav.splice(indexChange,1);
-            console.log(arrFav)
+            localStorage.removeItem(props.id);
+            dispatch({type: "SET_FAVOURITE", data: arrFav})
             localStorage.setItem("favourite", arrFav)
-            /*const test = stringFav.replace(stringFav,props.id)*/
-            /*localStorage.setItem("favorite", test)*/
-            /*console.log(test)*/
-            handleFavourite(!favourite);
         } else {
-                handleFavourite(!favourite);
                 localStorage.setItem(props.id, "favourite")
-            localStorage.setItem("favourite", localStorage.getItem("favourite")+props.id)
+            dispatch({type: "SET_FAVOURITE", data: [...isFavourite,props.id]})
+            localStorage.setItem("favourite", [localStorage.getItem("favourite")? localStorage.getItem("favourite"): null, props.id])
             }
         }
     return (
@@ -45,7 +45,7 @@ export default function Card(props) {
                     <h4 className="cardDescription">descr</h4>
                     <div className="priceWrapper">
                         <h2 className="cardPrice">{props.price}</h2>
-                        <Button text="add to cart" className={"btn-cart-add"+props.id} onClick={props.openCart}/>
+                        {props.isVisible?<Button text="add to cart" className={"btn-cart-add"+props.id} onClick={props.openCart} isVisible={props.isVisible}/>:null}
                     </div>
                 </div>
             </>
@@ -56,3 +56,8 @@ export default function Card(props) {
     name:PropTypes.string,
     price:PropTypes.number,
   };
+const mapStateToProps = (state) => {
+    return{
+        card:state.card,
+    }}
+export default connect(mapStateToProps)(Card);

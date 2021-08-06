@@ -1,46 +1,27 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import CardWrapper from "../../CardWrapper/CardWrapper";
 import Button from "../../Button/Button";
 import Modal from "../../Modal/Modal";
+import Sidebar from "../../Sidebar/Sidebar";
+import {connect} from "react-redux";
 
 
-const Cards = () => {
-    const [isSecondModalOpen, handleSecondModalOpen] = useState(false);
+const Cards = (props) => {
+    console.log(props)
     const [isAdToCartOpen, toggleCart] = useState(false);
     const [id, setId] = useState(0);
     const addToCart = (e) => {
         localStorage.setItem("cart", localStorage.getItem("cart")+id);
+
         toggleCart(!isAdToCartOpen);
     }
     return(
         <>
+            <Sidebar/>
         <CardWrapper openCart={(e) => {
             toggleCart(!isAdToCartOpen);
-            console.log((e.target.className).split("btn-cart-add")[1])
             setId((e.target.className).split("btn-cart-add")[1])
         }} />
-    <Modal
-        isOpen={isSecondModalOpen}
-        onCancel={() => handleSecondModalOpen(!isSecondModalOpen)}
-        header="Do you want to upload this file?"
-        closeButton={true}
-        text="something else"
-        actions={
-            <>
-                <h2>Ogo</h2>
-                <Button
-                    text="Ok"
-                    className="btn-ok"
-                    onClick={() => handleSecondModalOpen(!isSecondModalOpen)}
-                />
-                <Button
-                    text="Cancel"
-                    className="btn-cancel"
-                    onClick={() => handleSecondModalOpen(!isSecondModalOpen)}
-                />
-            </>
-        }
-    />
     <Modal
     isOpen={isAdToCartOpen}
     onCancel={() => toggleCart(!isAdToCartOpen)}
@@ -65,4 +46,10 @@ const Cards = () => {
     </>
     )
 }
-export default Cards;
+const mapStateToProps = (state) => {
+    return{
+        cards:state.cards,
+        card: state.card,
+    }
+}
+export default connect(mapStateToProps)(Cards)
