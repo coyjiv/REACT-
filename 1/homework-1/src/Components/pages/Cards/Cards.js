@@ -7,12 +7,13 @@ import {connect} from "react-redux";
 
 
 const Cards = (props) => {
+    const {dispatch} = props;
+    const {isInCart} = props.card;
     console.log(props)
     const [isAdToCartOpen, toggleCart] = useState(false);
     const [id, setId] = useState(0);
     const addToCart = (e) => {
         localStorage.setItem("cart", localStorage.getItem("cart")+id);
-
         toggleCart(!isAdToCartOpen);
     }
     return(
@@ -33,7 +34,11 @@ const Cards = (props) => {
         <Button
             text="Ok"
             className="btn-ok"
-            onClick={() => addToCart(!isAdToCartOpen)}
+            onClick={(e) => {addToCart(!isAdToCartOpen)
+                console.dir(e.target)
+                dispatch({type: "ADD_TO_CART", data: [...isInCart,id]})
+
+            }}
         />
         <Button
             text="Cancel"
