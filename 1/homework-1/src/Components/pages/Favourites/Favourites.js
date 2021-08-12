@@ -25,7 +25,10 @@ const Favourites = (props) => {
             path={allProducts[indexArr[index]].path}
             price={allProducts[indexArr[index]].price}
             name={allProducts[indexArr[index]].name}
-        isVisible={true}/>)
+        isVisible={true}
+            isFav={true}
+            onClick={props.openCart}
+        />)
     }}
 
 

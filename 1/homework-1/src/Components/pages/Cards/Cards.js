@@ -10,11 +10,21 @@ const Cards = (props) => {
     const {dispatch} = props;
     const {isInCart} = props.card;
     console.log(props)
+    const adToCart = (e) => {addToCart(!isAdToCartOpen)
+        dispatch({type: "ADD_TO_CART", data: [...isInCart,id]})
+
+    }
     const [isAdToCartOpen, toggleCart] = useState(false);
     const [id, setId] = useState(0);
     const addToCart = (e) => {
-        localStorage.setItem("cart", localStorage.getItem("cart")+id);
-        toggleCart(!isAdToCartOpen);
+        if (localStorage.getItem("cart")!==null) {
+            localStorage.setItem("cart", [localStorage.getItem("cart"), id]);
+            toggleCart(!isAdToCartOpen);
+        }
+        else{
+            localStorage.setItem("cart", id);
+            toggleCart(!isAdToCartOpen);
+        }
     }
     return(
         <>
@@ -22,7 +32,8 @@ const Cards = (props) => {
         <CardWrapper openCart={(e) => {
             toggleCart(!isAdToCartOpen);
             setId((e.target.className).split("btn-cart-add")[1])
-        }} />
+
+        }} isVisible={true} isFav={true} />
     <Modal
     isOpen={isAdToCartOpen}
     onCancel={() => toggleCart(!isAdToCartOpen)}
@@ -34,11 +45,7 @@ const Cards = (props) => {
         <Button
             text="Ok"
             className="btn-ok"
-            onClick={(e) => {addToCart(!isAdToCartOpen)
-                console.dir(e.target)
-                dispatch({type: "ADD_TO_CART", data: [...isInCart,id]})
-
-            }}
+            onClick={adToCart}
         />
         <Button
             text="Cancel"

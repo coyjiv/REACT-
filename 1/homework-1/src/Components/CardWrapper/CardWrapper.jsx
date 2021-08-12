@@ -5,7 +5,7 @@ import Loading from "../Loading/Loading";
 import axios from "axios";
 import {connect} from "react-redux";
 
-function CardWrapper({cards,openCart,dispatch}) {
+function CardWrapper({cards,openCart,dispatch, isVisible, isFav}) {
   useEffect(()=>{
       if (cards.data.length===0) {
           axios("/articles.json")
@@ -36,7 +36,8 @@ function CardWrapper({cards,openCart,dispatch}) {
          price={card.price}
          name={card.name}
          openCart={openCart}
-         isVisible={true}/>)
+         isVisible={isVisible}
+         isFav={isFav}/>)
       :null}
       </div>
   )  
