@@ -9,7 +9,7 @@ import { useHistory } from 'react-router'
 const AppRoutes = () => {
     const history = useHistory();
     return(<Switch>
-            <Redirect exact from="/" to="/cards"/>
+            <Redirect exact from='/' to="/cards"/>
             <Route exact path="/cards">
                 <Cards/>
             </Route>

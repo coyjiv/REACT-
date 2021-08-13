@@ -19,8 +19,6 @@ function CardWrapper({cards,openCart,dispatch, isVisible, isFav}) {
                       const arrFav = stringFav.split(",");
                       dispatch({type: "SET_FAVOURITE", data: arrFav})
                   })
-
-          /*if (localStorage.getItem("products") === null) localStorage["products"] = JSON.stringify(cardss.data);*/
       }
   },[]);
     if (cards.isLoading) return <Loading />;
