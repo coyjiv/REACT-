@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import CardWrapper from "../../CardWrapper/CardWrapper";
 import Button from "../../Button/Button";
 import Modal from "../../Modal/Modal";
@@ -9,7 +9,6 @@ import {connect} from "react-redux";
 const Cards = (props) => {
     const {dispatch} = props;
     const {isInCart} = props.card;
-    console.log(props)
     const adToCart = (e) => {addToCart(!isAdToCartOpen)
         dispatch({type: "ADD_TO_CART", data: [...isInCart,id]})
 

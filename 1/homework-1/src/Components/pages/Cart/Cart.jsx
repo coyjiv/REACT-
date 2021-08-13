@@ -3,13 +3,9 @@ import Card from "../../Card/Card";
 import "./Cart.scss"
 import Sidebar from "../../Sidebar/Sidebar";
 import {connect} from "react-redux";
+import CartForm from "../../CartForm/CartForm";
 const Cart = (props) => {
-    console.log(props)
-    // useEffect(()=>{
-    //
-    // },[])
     const allProducts = props.cards.data;
-    // console.log(allProducts)
     const cartProductsArr = props.card.isInCart;
 
 
@@ -54,6 +50,7 @@ const Cart = (props) => {
 
             {cardCol}
 
+            <CartForm cart={cartProductsArr} all={allProducts}/>
         </div>
         </>
     );
