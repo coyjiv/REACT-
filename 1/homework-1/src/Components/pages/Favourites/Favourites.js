@@ -10,7 +10,7 @@ const Favourites = (props) => {
     let cardCol = [];
     const indexArr =[];
     if(favProducts){
-        for (let index=1;index < favProducts.length; index++) {
+        for (let index=0;index < favProducts.length; index++) {
             const element = favProducts[index];
             allProducts.map((object, index)=>{
                 if (object.article === +element){

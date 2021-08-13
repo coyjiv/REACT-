@@ -5,11 +5,16 @@ import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 
 function Card(props) {
-    // console.log(props)
     const {isFavourite,isInCart} = props.card;
     const {dispatch} =props;
     const star = () => {
-        if (localStorage.getItem(props.id) === "favourite") {
+        if (localStorage.getItem("favourite")===null||localStorage.getItem("favourite")==="") {
+            localStorage.setItem(props.id, "favourite")
+            dispatch({type: "SET_FAVOURITE", data: [...isFavourite,props.id]})
+            localStorage.setItem("favourite", props.id)
+        }
+        // код для снятия
+        else if (localStorage.getItem(props.id) === "favourite") {
             const stringFav = localStorage.getItem("favourite");
             const arrFav = stringFav.split(",");
             const indexChange = arrFav.indexOf(props.id.toString());
@@ -19,9 +24,10 @@ function Card(props) {
             dispatch({type: "SET_FAVOURITE", data: arrFav})
             localStorage.setItem("favourite", arrFav)
         } else {
+            // код для окраски
                 localStorage.setItem(props.id, "favourite")
             dispatch({type: "SET_FAVOURITE", data: [...isFavourite,props.id]})
-            localStorage.setItem("favourite", [localStorage.getItem("favourite")? localStorage.getItem("favourite"): null, props.id])
+            localStorage.setItem("favourite", [localStorage.getItem("favourite"), props.id])
             }
         }
     return (
