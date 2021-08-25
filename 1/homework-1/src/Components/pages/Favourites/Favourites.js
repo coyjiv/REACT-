@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Card from "../../Card/Card";
 import "./Favourites.scss"
 import Sidebar from "../../Sidebar/Sidebar";
 import {connect} from "react-redux";
 
 const Favourites = (props) => {
+    useEffect(()=>{
+        
+    },[])
+    console.log(props)
     const allProducts = props.cards.data;
     const favProducts = props.card.isFavourite;
     let cardCol = [];
@@ -27,7 +31,7 @@ const Favourites = (props) => {
             name={allProducts[indexArr[index]].name}
         isVisible={true}
             isFav={true}
-            onClick={props.openCart}
+            openCart={props.cart}
         />)
     }}
 
