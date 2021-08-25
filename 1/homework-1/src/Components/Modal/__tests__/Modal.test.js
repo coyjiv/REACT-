@@ -3,18 +3,29 @@ import "@testing-library/jest-dom";
 import Modal from "../Modal";
 
 test('Rendering due to isOpen value', () => {
-    const modal = render(<Modal isOpen={true}/>);
-    expect(screen.getByRole('modal')).toHaveTextContent("add to cart");
+    const modal = render(<Modal isOpen={true} text="isOpen"/>);
+    expect(screen.getByText(/isOpen/i)).toHaveTextContent("isOpen");
 });
 
-test('calls onClick prop when clicked', ()=>{
+test('calls onCancel prop when clicked on cross', ()=>{
     const handleClick = jest.fn()
-    const modal = render(<Modal onClick={handleClick} text="onClick"/>);
-    fireEvent.click(screen.getByText(/onClick/i))
+    const modal = render(<Modal isOpen={true} onCancel={handleClick} closeButton={true} text="modal onCancel"/>);
+    const cross = screen.getByAltText(/cross/i);
+    fireEvent.click(cross)
     expect(handleClick).toHaveBeenCalledTimes(1)
 })
 
-test('className is setting from props', ()=>{
-    const modal = render(<Modal className="testButton" text="classTest"/>);
-    expect(screen.getByText(/classTest/i).classList.contains("testButton")).toBe(true);
+test('text prop is setting text', ()=>{
+    const modal = render(<Modal isOpen={true} text="modaltext"/>);
+    expect(screen.getByText(/modaltext/i)).toHaveTextContent("modaltext");
+});
+
+test('header prop is setting text', ()=>{
+    const modal = render(<Modal isOpen={true} header="modaltextheader"/>);
+    expect(screen.getByText(/modaltextheader/i)).toHaveTextContent("modaltextheader");
+});
+
+test('prop actions receiving child nodes', ()=>{
+    const modal = render(<Modal isOpen={true} actions={<h1 data-testid="actionstest">actions</h1>}/>);
+    expect(screen.getByTestId(/actionstest/i)).toHaveTextContent("actions");
 });
